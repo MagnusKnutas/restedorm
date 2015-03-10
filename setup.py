@@ -20,6 +20,7 @@ setup(
     url = "https://github.com/MagnusKnutas/restedorm/",
     packages=['restedorm'],
     long_description=read('README.md'),
+    install_requires=read('requirements.txt'),
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
