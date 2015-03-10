@@ -5,9 +5,9 @@ I needed a way to map a rest-api in a project I'm working on, I like the orm way
 ## Usage
 
 Add an endpoint (ugly and will change)
-import restedorm
 
-restedorm.BASE_URL = 'http://yoururl/'
+    import restedorm
+    restedorm.BASE_URL = 'http://yoururl/'
 
 The way to use restedorm is just as straight forward as defining a model:
 
