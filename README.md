@@ -27,6 +27,8 @@ The way to use restedorm is just as straight forward as defining a model:
         email = str
         website_url = str
         date_joined = datetime
+        issues = list('full.path.to.model.extending.RestObject') M2M
+        issues = 'full.path.to.model.extending.RestObject' Foreignkey
 
 And then start querying it (bare in mind that the api needs to be able to handle filter and so on for this to work):
 
