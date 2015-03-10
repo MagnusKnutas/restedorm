@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 import json
 import requests
-from restedorm import BASE_URL, caller_name
-from restedorm.exeptions import NotFoundException, ApiError
+from . import BASE_URL, caller_name
+from .exeptions import NotFoundException, ApiError
 
 __author__ = 'magnusknutas'
-from restedorm.statics import HTTP_200, HTTP_404
+from .statics import HTTP_200, HTTP_404
 
 
 class BaseManager(object):

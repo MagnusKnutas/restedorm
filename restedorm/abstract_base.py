@@ -1,9 +1,6 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
-import json
-import requests
-from restedorm.exeptions import NotFoundException
-from restedorm.managers import BaseManager
+from .managers import BaseManager
 
 __author__ = 'magnusknutas'
 import logging

@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 # -*- coding: utf-8 -*-
-from restedorm.managers import BaseManager
+from .managers import BaseManager
 
 __author__ = 'magnusknutas'
 
