@@ -11,16 +11,16 @@ The way to use restedorm is just as straight forward as defining a model:
     
     @Endpoint('users')
     class User(RestObject):
-        id = int()
-        name = str()
-        bio = str()
-        twitter = str()
-        linkedin = str()
-        state = str()
+        id = int
+        name = str
+        bio = str
+        twitter = str
+        linkedin = str
+        state = str
         last_login = datetime
-        skype = str()
-        email = str()
-        website_url = str()
+        skype = str
+        email = str
+        website_url = str
         date_joined = datetime
 
 And then start querying it (bare in mind that the api needs to be able to handle filter and so on for this to work):
