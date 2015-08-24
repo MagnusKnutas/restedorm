@@ -3,6 +3,7 @@
 import json
 import requests
 from . import BASE_URL, caller_name
+from requests.exceptions import ConnectionError
 from .exeptions import NotFoundException, ApiError
 
 __author__ = 'magnusknutas'
@@ -24,9 +25,12 @@ class BaseManager(object):
         uri = self._get_uri() + ('?' if len(kwargs) > 0 else '')
         for key in kwargs.keys():
             uri += str(key)+"="+str(kwargs[key])
-        print uri
 
-        r = requests.get(uri, auth=('name', 'pass'))  # TODO: Fix auth
+        try:
+            r = requests.get(uri, auth=('name', 'pass'))  # TODO: Fix auth
+        except ConnectionError:
+            raise NotFoundException("endpoint %s is not found" % self.endpoint)
+
         if r.status_code == 404:
             raise NotFoundException("endpoint %s is not found" % self.endpoint)
         objs = json.loads(r.text)
