@@ -35,9 +35,13 @@ class BaseManager(object):
             raise NotFoundException("endpoint %s is not found" % self.endpoint)
         objs = json.loads(r.text)
         ret = []
-        for user in objs.get('results', {}):
-            user.pop('id')
-            ret.append(self.cls(**user))
+
+        if r.status_code != 200:
+            raise ApiError("%s, %s" % (r.status_code, r.text))
+
+        for obj in objs.get('results', {}):
+            obj.pop('id')
+            ret.append(self.cls(**obj))
         self.next = objs.get('next', None)
         self.previous = objs.get('previous', None)
         self.count = objs.get('count', None)
@@ -64,7 +68,7 @@ class BaseManager(object):
         if r.status_code == HTTP_200:
             return self.cls(**obj)
         else:
-            ApiError("%s, %s" % (r.status_code, r.text))
+            raise ApiError("%s, %s" % (r.status_code, r.text))
 
     def create(self):
         pass
